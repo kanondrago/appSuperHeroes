@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Hero } from '../interfaces/hero'; 
+import { Hero } from '../interfaces/hero'; // Interfaz
+import { HEROES } from '../data/data-heroes'; // Data
 
 @Component({
   selector: 'app-heroes',
@@ -9,6 +10,8 @@ import { Hero } from '../interfaces/hero';
 
 
 export class HeroesComponent {
+
+  heroes = HEROES;
 
   hero: Hero = {
     id: 1,
