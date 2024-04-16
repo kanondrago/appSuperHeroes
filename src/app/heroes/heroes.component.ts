@@ -14,9 +14,7 @@ import { HeroService } from '../services/hero.service';
 export class HeroesComponent implements OnInit{
 
   heroes?: Hero[];
-
-  selectedHero?: Hero;
-
+  
   // selectedHero: Hero = {
   //   id: 1,
   //   name: 'Xavier'
@@ -27,11 +25,6 @@ export class HeroesComponent implements OnInit{
 
   ngOnInit(): void {
     this.getHeroes();
-  }
-
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
-    console.log(this.selectedHero);
   }
 
   getHeroes(): void {
