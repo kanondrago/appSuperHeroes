@@ -13,10 +13,12 @@ export class HeroesComponent {
 
   heroes = HEROES;
 
-  hero: Hero = {
-    id: 1,
-    name: 'Xavier'
-  };
+  selectedHero?: Hero;
+
+  // selectedHero: Hero = {
+  //   id: 1,
+  //   name: 'Xavier'
+  // };
 
   constructor() {
 
@@ -25,6 +27,11 @@ export class HeroesComponent {
   ngOnInit(): void {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
+  }
+
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero;
+    console.log(this.selectedHero);
   }
 
 }
