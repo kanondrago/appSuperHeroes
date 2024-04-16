@@ -35,7 +35,11 @@ export class HeroesComponent implements OnInit{
   }
 
   getHeroes(): void {
-    this.heroes = this.heroServices.getHeroes();
+    // Suscribiendose a los datos del servicio
+    this.heroServices.getHeroes()
+      .subscribe((heroes) => {
+        this.heroes = heroes;
+      })
   }
 
 }
