@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms'; // Utilizado para el enlace de dat
 
 import { AppComponent } from './app.component';
 import { HeroesComponent } from './heroes/heroes.component';
+import { HeroesDetailComponent } from './heroes-detail/heroes-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent
+    HeroesComponent,
+    HeroesDetailComponent
   ],
   imports: [
     BrowserModule,

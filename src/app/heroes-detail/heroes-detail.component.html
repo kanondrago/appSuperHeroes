@@ -1,0 +1,15 @@
+<div *ngIf="hero">
+    <h2>DETALLES DEL HÉROE</h2>
+    <h2>Nombre: {{hero.name | uppercase}}</h2>
+    <h2>ID: {{hero.id}}</h2>
+    
+    <div>
+        <label>Nombre:
+            <input [(ngModel)]="hero.name" placeholder="name" type="text"/>
+        </label>
+    </div>
+</div>
+
+<div *ngIf="!hero">
+    <h2>NO HAY HÉROE SELECCIONADO</h2>
+</div>
