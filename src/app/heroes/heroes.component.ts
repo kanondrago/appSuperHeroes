@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hero } from '../interfaces/hero'; // Interfaz
-import { HEROES } from '../data/data-heroes'; // Data
+
+// Servicios
+import { HeroService } from '../services/hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -9,9 +11,9 @@ import { HEROES } from '../data/data-heroes'; // Data
 })
 
 
-export class HeroesComponent {
+export class HeroesComponent implements OnInit{
 
-  heroes = HEROES;
+  heroes?: Hero[];
 
   selectedHero?: Hero;
 
@@ -20,18 +22,20 @@ export class HeroesComponent {
   //   name: 'Xavier'
   // };
 
-  constructor() {
-
+  constructor(private heroServices: HeroService) {
   }
 
   ngOnInit(): void {
-    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
-    //Add 'implements OnInit' to the class.
+    this.getHeroes();
   }
 
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
     console.log(this.selectedHero);
+  }
+
+  getHeroes(): void {
+    this.heroes = this.heroServices.getHeroes();
   }
 
 }
