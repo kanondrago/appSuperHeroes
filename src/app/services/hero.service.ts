@@ -1,23 +1,44 @@
 import { Injectable } from '@angular/core';
 import { Hero } from '../interfaces/hero';
 import { HEROES } from '../data/data-heroes';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 // Importando Observable
 import { Observable, of } from 'rxjs';
+
+// Importando operadores RxJS
+import { catchError, map, tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
 
-  constructor() { }
+  private heroesUrl = 'api/heroes';
 
-  getHeroes(): Observable<Hero[]> {
-    return of(HEROES);
+  constructor(private http: HttpClient) { }
+
+  getHeroes(): Observable <Hero[]> {
+    return this.http.get<Hero[]>(this.heroesUrl)
+      .pipe(
+        catchError(this.handleError<Hero[]>('getHeroes', []))
+      )
   }
 
   getHero(id: number): Observable<any> {
     // TODO: send the message _after_ fetching the hero
     return of(HEROES.find((hero: Hero) => hero.id === id));
   }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+  
+      // TODO: send the error to remote logging infrastructure
+      console.error(error);
+  
+      // Let the app keep running by returning an empty result.
+      return of(result as T);
+    };
+  }
+
 }
