@@ -25,9 +25,15 @@ export class HeroService {
       )
   }
 
-  getHero(id: number): Observable<any> {
-    // TODO: send the message _after_ fetching the hero
-    return of(HEROES.find((hero: Hero) => hero.id === id));
+  getHero(id: number): Observable<Hero> {
+    const url = `${this.heroesUrl}/${id}`;
+
+    return this.http.get<Hero>(url)
+      .pipe(
+        catchError(this.handleError<Hero>(`getHero id=${id}`))
+      )
+
+    //return of(HEROES.find((hero: Hero) => hero.id === id));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
