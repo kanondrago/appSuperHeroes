@@ -16,6 +16,10 @@ export class HeroService {
 
   private heroesUrl = 'api/heroes';
 
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  };
+
   constructor(private http: HttpClient) { }
 
   getHeroes(): Observable <Hero[]> {
@@ -34,6 +38,20 @@ export class HeroService {
       )
 
     //return of(HEROES.find((hero: Hero) => hero.id === id));
+  }
+
+  updateHero(hero: any): Observable<any> {
+    return this.http.put(this.heroesUrl, hero, this.httpOptions)
+      .pipe(
+        catchError(this.handleError<any>('updateHero'))
+      )
+  }
+
+  addHero(hero: Hero): Observable<any> {
+    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions)
+      .pipe(
+        catchError(this.handleError<Hero>('addHero'))
+      )
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
