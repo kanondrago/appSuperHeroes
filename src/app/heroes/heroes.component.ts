@@ -20,7 +20,7 @@ export class HeroesComponent implements OnInit{
   //   name: 'Xavier'
   // };
 
-  constructor(private heroServices: HeroService) {
+  constructor(private heroService: HeroService) {
   }
 
   ngOnInit(): void {
@@ -29,7 +29,7 @@ export class HeroesComponent implements OnInit{
 
   getHeroes(): void {
     // Suscribiendose a los datos del servicio
-    this.heroServices.getHeroes()
+    this.heroService.getHeroes()
       .subscribe((heroes) => {
         this.heroes = heroes;
       })
@@ -38,7 +38,7 @@ export class HeroesComponent implements OnInit{
   add(name: string): void {
     name = name.trim();
     if (!name) { return; }
-    this.heroServices.addHero({name} as Hero)
+    this.heroService.addHero({name} as Hero)
       .subscribe(hero => {
         this.heroes?.push(hero);
       });
@@ -46,6 +46,6 @@ export class HeroesComponent implements OnInit{
   
   delete(hero: Hero): void {
     this.heroes = this.heroes?.filter(h => h !== hero);
-    this.heroServices.deleteHero(hero).subscribe();
+    this.heroService.deleteHero(hero).subscribe();
   }
 }
