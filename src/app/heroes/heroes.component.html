@@ -1,6 +1,9 @@
 
 
 <h1>Mis héroes</h1>
+
+<app-hero-search></app-hero-search>
+
 <!-- Lista de héroes -->
 <ul class="heroes">
     <li *ngFor="let hero of heroes" routerLink="/detalle/{{hero.id}}">
@@ -12,7 +15,7 @@
 
 <!-- Agregar un héroe -->
 <div>
-    <label>Nombre del Héroe:
+    <label>Agregar un Héroe:
         <input #heroName />
     </label>
     <button (click)="add(heroName.value); heroName.value=''">
