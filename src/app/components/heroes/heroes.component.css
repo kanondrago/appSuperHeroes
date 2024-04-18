@@ -48,3 +48,7 @@
     justify-content: space-between;
   }
 
+  .position span button {
+    margin-top: 3px;
+  }
+
