@@ -6,6 +6,7 @@ import { HeroesComponent } from './components/heroes/heroes.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { HeroesDetailComponent } from './components/heroes-detail/heroes-detail.component';
 
+// Enrutamiento
 const routes : Routes = [
   {path: 'heroes', component: HeroesComponent},
   {path: 'dashboard', component: DashboardComponent},

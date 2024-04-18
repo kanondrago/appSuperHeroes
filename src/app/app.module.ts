@@ -1,28 +1,21 @@
+
+// Módulos
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms'; // Utilizado para el enlace de datos bidireccional
-
-
-import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module'; // Enrutamiento
+import { HttpClientModule } from '@angular/common/http'; // Módulo http
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api'; // Módulo para simular un servidor de datos
 
 // Componentes
+import { AppComponent } from './app.component';
 import { HeroesComponent } from './components/heroes/heroes.component';
 import { HeroesDetailComponent } from './components/heroes-detail/heroes-detail.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-
-
-// Enrutamiento
-import { AppRoutingModule } from './app-routing.module';
-
-// Habilitando http
-import { HttpClientModule } from '@angular/common/http';
-
-// Modulo para un simular un servidor de datos
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 
 // Servicios
 import { InMemoryDataService } from './services/in-memory-data.service';
-import { HeroSearchComponent } from './components/hero-search/hero-search.component';
 
 
 @NgModule({

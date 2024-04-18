@@ -1,6 +1,8 @@
 
 import { Hero } from "../interfaces/hero";
 
+
+// Arreglo solo para pruebas iniciales
 export const HEROES: Hero[] = [
     {id: 11, name: 'Ciclope'},
     {id: 12, name: 'Mystique'},
