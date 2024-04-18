@@ -6,9 +6,10 @@ import { FormsModule } from '@angular/forms'; // Utilizado para el enlace de dat
 import { AppComponent } from './app.component';
 
 // Componentes
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroesDetailComponent } from './heroes-detail/heroes-detail.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroesComponent } from './components/heroes/heroes.component';
+import { HeroesDetailComponent } from './components/heroes-detail/heroes-detail.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+
 
 // Enrutamiento
 import { AppRoutingModule } from './app-routing.module';
@@ -21,7 +22,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 // Servicios
 import { InMemoryDataService } from './services/in-memory-data.service';
-import { HeroSearchComponent } from './hero-search/hero-search.component';
+import { HeroSearchComponent } from './components/hero-search/hero-search.component';
+
 
 @NgModule({
   declarations: [
