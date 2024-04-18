@@ -28,3 +28,8 @@ label {
     color: #ccc;
     cursor: auto;
   }
+
+  .buttons {
+    display: flex;
+    column-gap: 10px;
+  }
